@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS红皮书</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<h1>第2章 在HTML中使用JavaScript</h1>
+	<h2>2.1 &lt;script&gt;元素</h2>
+	<p>
+		1、两种方式引入js，(1) html文件直接写js，(2) 外部文件引入js两种方法，选第二种便于维护。
+	</p>
+	<p>
+		2、引入js的文件位置，建议放body标签，因为h5的解析顺序是从上到下，所以建议先加载h5文档，再用js解析，解析js，页面处理会暂时停止。
+	</p>
+	<p>
+		3、改变解析顺序的两种属性，async 与 defer 
+	</p>	
+	<h2>2.1 &lt;noscript&gt;元素</h2>
+	<p>符合下面其中之一，就用noscript：</p>
+	<p>1、浏览器不支持js脚本</p>
+	<p>2、浏览器支持js脚本，但是脚本被禁用</p>
+	<code>
+		&lt;!DOCTYPE html&gt; <br>
+		&lt;html&gt;<br>
+		&lt;head&gt;<br>
+			&nbsp;&nbsp;&lt;title&gt;&lt;/title&gt;<br>
+		&lt;/head&gt;<br>
+		&lt;body&gt;<br>
+			&nbsp;&nbsp;&lt;noscript&gt;&lt;p&gt;本页面需要支持（启用）JavaScript。&lt;/p&gt;&lt;/noscript&gt;<br>
+		&lt;/body&gt;<br>
+		&lt;/html&gt;<br>
+	</code>
+
+</body>
+</html>
