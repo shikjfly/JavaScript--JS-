@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS红皮书</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<h1>第3章 基本概念</h1>
+	<h2>3.1 语法</h2>
+	<p>1、变量、函数名和操作符里面的一切都区分大小写</p>
+	<p>2、标识符：变量、函数、属性、函数参数的名字，都是标识符。规则 I 第一个字符必须是字母aA~zZ、下划线_或美元$。II 其他字符不受限。</p>
+	<p>3、函数名驼峰表示：convertToCelsius，变量用下划线表示：temple_celsius</p>
+	<p>4、注释：//单行注释，/*多行注释*/</p>
+	<p>5、严格模式</p>
+	<p>6、写代码的两条规则，结尾分号；不能省略；代码块即使是一行，也要用花括号{}括起来</p>
+	<h2>3.2 关键字和保留字</h2>
+	<h2>3.3 变量</h2>
+	<p>1、ECMAScript的变量是松散型的，可以保存任何类型的数据。</p>
+	<p>2、变量建议只保存一种类型，不建议改变保存的类型，虽然有效，初始化的过程只是给变量赋值这么简单</p>
+	<code>
+		var message = "hi"; // 赋值为字符串 <br> 
+		message = 100 ; // 赋值为数值，有效，但是不推荐 <br><br>
+		声明多个变量方式： <br>
+		var message = "hi", <br>
+		&nbsp;&nbsp;found = false, <br>
+		&nbsp;&nbsp;age = 100;
+	</code>
+
+	<p>3、加var就是局部变量，会在作用域退出后，消失</p>
+	<code>
+		function test(){ <br><br>
+			&nbsp;&nbsp;var message = "hi"; // 局部变量 <br>
+		}<br>
+		test();<br>
+		alert(message); // 局部变量，退出函数作用域之后，就销毁了
+	</code>
+	<p>4、不加var就是全局变量</p>
+	<code>
+		function test(){ <br><br>
+			&nbsp;&nbsp;message = "hi"; // 局部变量 <br>
+		}<br>
+		test();<br>
+		alert(message); // "hi"
+	</code>
+	<h2>3.4 数据类型</h2>
+6种数据类型：（注意首字母大写）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;5种简单数据类型：Undefined、Null、Boolean、Number和String <br>
+&nbsp;&nbsp;&nbsp;&nbsp;1种复杂数据类型：Object
+	<p>1、typeof操作符返回值：undefine、object、boolean、number、string，还有一种特殊的function</p>
+	<p>2、Undefined类型，在使用var声明变量，但是未对变量初始化，那这个变量的值就是undefined</p>
+	<code>
+		age // 变量未声明 <br>
+		var age // 声明变量age,但是没有初始化,默认值为undefined <br>
+		age = 100; // 初始化变量 <br>
+		------------------------------ <br>
+		var message; <br>
+		alert(message); // 已声明的变量 "undefined" <br>
+		alert(sex); // 未声明的变量 报错 <br> <br>
+
+		alert(typeof message); // 已声明的变量 "undefined" <br>
+		alert(typeof sex); // 未声明的变量 "undefined" <br>
+	</code>
+	<p>3、声明变量且初始化，可用typeof检测，如果是undefined，那就是没有声明的变量</p>
+	<p>4、Null类型，空对象指针，所以才返回object</p>
+	<code>
+		var car = null; <br>
+		alert(typeof car); //  返回"object" <br><br>
+		if(car != null){ <br>
+		&nbsp;&nbsp;do somethings // 表明car已经赋值为对象了<br>
+		}<br>
+
+		alert(null == undefined); // 返回true <br>
+	</code>
+	<p>5、Boolean类型，true和false两个值，Boolean()函数转换，false、""空字符串、0和NaN、null、undefined将会返回false，其他返回true；</p>
+	<code>
+		var message = "hello world"; <br>
+		if(message){ <br>
+		&nbsp;&nbsp;alert(message 被自动转换为 true，所以会执行里面的弹窗)<br>
+		}<br>
+	</code>
+	<p>6、Number类型，</p>
+
+</body>
+</html>
