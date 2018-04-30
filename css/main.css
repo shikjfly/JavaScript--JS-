@@ -5,3 +5,12 @@ p{
 	text-indent: 30px;
 	line-height: 30px;
 }
+code {
+	display: inline-block;
+	color: #333;
+	min-width: 50%;
+	background-color: #DEDEDE;
+	border: 1px solid #BBB;
+	border-radius: 5px;
+	padding: 10px;
+}
