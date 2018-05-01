@@ -16,7 +16,7 @@
 	<p>6、写代码的两条规则，结尾分号；不能省略；代码块即使是一行，也要用花括号{}括起来</p>
 	<h2>3.2 关键字和保留字</h2>
 	<h2>3.3 变量</h2>
-	<p>1、ECMAScript的变量是松散型的，可以保存任何类型的数据。</p>
+	<p>1、ECMAScript的变量是松散型的，可以保存任何类型的数据，被称为无类型（untyped）或动态类型（dynamically typed）语言。</p>
 	<p>2、变量建议只保存一种类型，不建议改变保存的类型，虽然有效，初始化的过程只是给变量赋值这么简单</p>
 	<code>
 		var message = "hi"; // 赋值为字符串 <br> 
@@ -45,8 +45,8 @@
 	</code>
 	<h2>3.4 数据类型</h2>
 6种数据类型：（注意首字母大写）<br>
-&nbsp;&nbsp;&nbsp;&nbsp;5种简单数据类型：Undefined、Null、Boolean、Number和String <br>
-&nbsp;&nbsp;&nbsp;&nbsp;1种复杂数据类型：Object
+5种简单数据类型：Undefined、Null、Boolean、Number和String <br>
+1种复杂数据类型：Object
 	<p>1、typeof操作符返回值：undefine、object、boolean、number、string，还有一种特殊的function</p>
 	<p>2、Undefined类型，在使用var声明变量，但是未对变量初始化，那这个变量的值就是undefined</p>
 	<code>
@@ -79,7 +79,123 @@
 		&nbsp;&nbsp;alert(message 被自动转换为 true，所以会执行里面的弹窗)<br>
 		}<br>
 	</code>
-	<p>6、Number类型，</p>
+	<p>6、Number类型，判断是否不是数值，可用NaN()函数返回Boolean值，另数值转换三种类型见下表。</p>
+	<table>
+		<tr>
+			<th></th>
+			<th>Number()</th>
+			<th>parseInt()</th>
+			<th>parseFloat()</th>
+			<th>备注</th>
+		</tr>
+		<tr>
+			<th>true</th>
+			<td>1</td>
+			<td>NaN</td>
+			<td>NaN</td>
+			<td>parseXxxx，如果第一个字符不是数字字符，就会返回NaN</td>
+		</tr>
+		<tr>
+			<th>false</th>
+			<td>0</td>
+			<td>NaN</td>
+			<td>NaN</td>
+			<td>parseXxxx，如果第一个字符不是数字字符，就会返回NaN</td>
+		</tr>
+		<tr>
+			<th>12</th>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+			<td rowspan="3">数值型，三者一致</td>
+		</tr>
+		<tr>
+			<th>012</th>
+			<td>10</td>
+			<td>10</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<th>0x12</th>
+			<td>18</td>
+			<td>18</td>
+			<td>18</td>
+		</tr>
+		<tr>
+			<th>null</th>
+			<td>0</td>
+			<td>NaN</td>
+			<td>NaN</td>
+			<td>parseXxxx，如果第一个字符不是数字字符，就会返回NaN</td>
+		</tr>
+		<tr>
+			<th>undefined</th>
+			<td>NaN</td>
+			<td>NaN</td>
+			<td>NaN</td>
+			<td>parseXxxx，如果第一个字符不是数字字符，就会返回NaN</td>
+		</tr>
+		<tr>
+			<th>"12"</th>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+		</tr>
+		<tr>
+			<th>"012"</th>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+			<td>前面的零忽略</td>
+		</tr>
+		<tr>
+			<th>"0x12"</th>
+			<td>18</td>
+			<td>18</td>
+			<td>0</td>
+			<td>parseFloat只解析十进制，所以一律忽略0，这也是和parseInt差别一</td>
+		</tr>
+		<tr>
+			<th>"01.2"</th>
+			<td>1.2</td>
+			<td>1</td>
+			<td>1.2</td>
+			<td>parseInt，小数点不识别，所以后面的2不显示，这也是和parseFloat差别二</td>
+		</tr>
+		<tr>
+			<th>""</th>
+			<td>0</td>
+			<td>NaN</td>
+			<td>NaN</td>
+			<td>""空字符串</td>
+		</tr>
+		<tr>
+			<th>"12abc"</th>
+			<td>NaN</td>
+			<td>12</td>
+			<td>12</td>
+			<td>parseXxxx，一个字符一个字符的解析，碰到不是数字的就停止</td>
+		</tr>
+		<tr>
+			<th>"Hello world"</th>
+			<td>NaN</td>
+			<td>NaN</td>
+			<td>NaN</td>
+		</tr>
+	</table>
+	<p>7、String类型，</p>
+	<table>
+		<tr>
+			<th></th>
+			<th>toString()</th>
+			<th>String()</th>
+		</tr>
+		<tr>
+			<th>数值 10</th>
+			<td>字符串 "10"</td>
+			<td>字符串 "10"</td>
+		</tr>
+	</table>
 
 </body>
 </html>
