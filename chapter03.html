@@ -183,19 +183,499 @@
 			<td>NaN</td>
 		</tr>
 	</table>
-	<p>7、String类型，</p>
+	<p>7、String类型，字符串长度通过length属性获得，另连接字符串参考下面</p>
+	<code>
+		var lang = "Java"; <br>
+		lang = lang + "Script";<br>
+	</code>
+	<br>
+	<br>
 	<table>
 		<tr>
 			<th></th>
 			<th>toString()</th>
 			<th>String()</th>
+			<th>--a.toString()用点号引用，String(a)带参数--</th>
 		</tr>
 		<tr>
 			<th>数值 10</th>
 			<td>字符串 "10"</td>
 			<td>字符串 "10"</td>
 		</tr>
+		<tr>
+			<th>Boolean值true</th>
+			<td>"true"</td>
+			<td>"true"</td>
+		</tr>
+		<tr>
+			<th>null</th>
+			<td>报错</td>
+			<td>"null"</td>
+		</tr>
+		<tr>
+			<th>undefined</th>
+			<td>报错</td>
+			<td>"undefined"</td>
+		</tr>
 	</table>
+
+	<p>8、Object类型</p>
+	
+	<h2>3.5 操作符</h2>
+	<p>1、一元操作符，++递增操作符，--递减操作符，分前置型和后置型，任何类型的数据都可以进行转换，false转换未0，true转换未1，利用<strong>Number（）函数</strong>转换</p>
+	<code>
+		var num1 = 2; <br>
+		var num2 = 20; <br>
+		var num3 = num1 + num2;  // 22<br>
+		var num4 = --num1 + num2; // num1先为1，然后执行加法21<br>
+		var num5 = num1-- + num2; // 22 然后num1就是1，
+		递减或递增操作是在包含他们的语句被求值之后才执行的。
+	</code>
+	<p>2、一元加和减操作符，其实就是正负号，利用Number（）转换。</p>
+	<p>3、位操作符</p>
+	<p>4、布尔操作符：逻辑非</p>
+	<table>
+		<tr>
+			<th></th>
+			<th>Boolean</th>
+			<th>逻辑非、NOT、！</th>
+			<td rowspan="8">Boolean()函数转换等同于非非！！</td>
+		</tr>
+		<tr>
+			<th>null</th>
+			<td>false</td>
+			<td>true</td>
+		</tr>
+		<tr>
+			<th>""空字符</th>
+			<td>false</td>
+			<td>true</td>
+		</tr>
+		<tr>
+			<th>0</th>
+			<td>false</td>
+			<td>true</td>
+		</tr>
+		<tr>
+			<th>NaN、undefined</th>
+			<td>false</td>
+			<td>true</td>
+		</tr>
+		<tr>
+			<th>非0</th>
+			<td>true</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<th>非空字符</th>
+			<td>true</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<th>任何对象</th>
+			<td>true</td>
+			<td>false</td>
+		</tr>
+	</table>
+	<p>5、布尔操作符：逻辑与属于短路操作，如果第一个操作符能决定结果，就不会再对第二个操作符求职。也就是如果有一个是false，那第二个就不会执行</p>
+	<code>
+		var result = true && false; //逻辑与
+	</code>
+	<br><br>
+	<table>
+		<tr>
+			<th>第一个操作数</th>
+			<th>第二个操作数</th>
+			<th>结果</th>
+		</tr>
+		<tr>
+			<td>true</td>
+			<td>true</td>
+			<td>true</td>
+		</tr>
+		<tr>
+			<td>true</td>
+			<td>false</td>
+			<td>true</td>
+		</tr>
+		<tr>
+			<td>false</td>
+			<td>true</td>
+			<td>true</td>
+		</tr>
+		<tr>
+			<td>false</td>
+			<td>false</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>任何对象</td>
+			<td>**</td>
+			<td>任何对象返回是true值，执行第二个操作数</td>
+		</tr>
+		<tr>
+			<td>**</td>
+			<td>任何对象</td>
+			<td>只有第一个操作数返回true，才执行第二个对象；false不执行</td>
+		</tr>
+		<tr>
+			<td>任何对象</td>
+			<td>任何对象</td>
+			<td>因为都是true，就返回第二个结果</td>
+		</tr>
+		<tr>
+			<td>null</td>
+			<td>**</td>
+			<td>因为第一个操作符就是false，所以第二个不用执行，直接返回第一个值null</td>
+		</tr>
+		<tr>
+			<td>NaN</td>
+			<td>**</td>
+			<td>因为第一个操作符就是false，所以第二个不用执行，直接返回第一个值NaN</td>
+		</tr>
+		<tr>
+			<td>undefined</td>
+			<td>**</td>
+			<td>因为第一个操作符就是false，所以第二个不用执行，直接返回第一个值undefined</td>
+		</tr>
+	</table>
+	<p></p>
+	<code>
+		var found = true; // 该条件下，下面会报错，会执行第二个 <br>
+		// var found = false;  该条件下，不会报错，因为第二个不执行 <br>
+		var result = (found && someUndefinedVariable); <br>
+		console.log(result);
+	</code>
+	<p>6、布尔操作符：逻辑或属于短路操作，如果第一个操作符能决定结果，就不会再对第二个操作符求职。也就是如果有一个是true就是true</p>
+	<code>
+		var result = true || false; //逻辑或
+	</code>
+	<br><br>
+	<table>
+		<tr>
+			<th>第一个操作数</th>
+			<th>第二个操作数</th>
+			<th>结果</th>
+		</tr>
+		<tr>
+			<td>true</td>
+			<td>true</td>
+			<td>true</td>
+		</tr>
+		<tr>
+			<td>true</td>
+			<td>false</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>false</td>
+			<td>true</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>false</td>
+			<td>false</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>任何对象</td>
+			<td>**</td>
+			<td>任何对象返回是true值，不用执行第二个操作数，发挥第一个值</td>
+		</tr>
+		<tr>
+			<td>**</td>
+			<td>任何对象</td>
+			<td>只有第一个操作数返回false，才执行第二个对象；true不执行</td>
+		</tr>
+		<tr>
+			<td>任何对象</td>
+			<td>任何对象</td>
+			<td>因为都是true，返回第一个结果</td>
+		</tr>
+		<tr>
+			<td>null</td>
+			<td>null</td>
+			<td>null</td>
+		</tr>
+		<tr>
+			<td>NaN</td>
+			<td>NaN</td>
+			<td>NaN</td>
+		</tr>
+		<tr>
+			<td>undefined</td>
+			<td>undefined</td>
+			<td>undefined</td>
+		</tr>
+	</table>
+	<p></p>
+	<code>
+		var found = true; // 该条件下，下面不会报错 <br>
+		// var found = false;  该条件下，会报错，false没法判定结果 <br>
+		var result = (found || someUndefinedVariable);<br>
+		console.log(result);
+	</code>	
+	<p>7、乘性操作符,乘法*，一个星号符号,除法/，一个斜线符号，求模%，一个百分号。Number（）函数转换</p>
+	<table>
+		<tr>
+			<th></th>
+			<th>结果</th>
+		</tr>
+		<tr>
+			<td colspan="2">乘法*</td>
+		</tr>
+		<tr>
+			<th>NaN*或者/</th>
+			<td>NaN</td>
+		</tr>
+		<tr>
+			<th>Infinity * 0</th>
+			<td>0</td>
+		</tr>
+		<tr>
+			<th>Infinity * ±数值</th>
+			<td>±Infinity</td>
+		</tr>
+		<tr>
+			<th>Infinity * Infinity</th>
+			<td>Infinity</td>
+		</tr>
+		<tr>
+			<td colspan="2">除法/</td>
+		</tr>
+		<tr>
+			<th>Infinity / Infinity</th>
+			<td>NaN</td>
+		</tr>	
+		<tr>
+			<th>0 / 0</th>
+			<td>NaN</td>
+		</tr>	
+		<tr>
+			<th>±数值 / 0</th>
+			<td>± Infinity</td>
+		</tr>	
+		<tr>
+			<th>±数值 / Infinity</th>
+			<td>±0</td>
+		</tr>		
+		<tr>
+			<th>Infinity / ±数值</th>
+			<td>±Infinity</td>
+		</tr>	
+		<tr>
+			<td colspan="2">求模%</td>
+		</tr>
+		<tr>
+			<th>Infinity % ±数值</th>
+			<td>NaN</td>
+		</tr>	
+		<tr>
+			<th>±数值 % 0</th>
+			<td>NaN</td>
+		</tr>	
+		<tr>
+			<th>Infinity % Infinity</th>
+			<td>NaN</td>
+		</tr>	
+		<tr>
+			<th>±正负数值 % Infinity</th>
+			<td>±正负数值</td>
+		</tr>		
+		<tr>
+			<th>0 % ±正负数值</th>
+			<td>0</td>
+		</tr>		
+	</table>
+	<p>8、加性操作符,加法+，减法-，Number（）函数转换</p>
+	<table>
+		<tr>
+			<th></th>
+			<th>结果</th>
+		</tr>
+		<tr>
+			<td colspan="2">加法+</td>
+		</tr>
+		<tr>
+			<th>NaN + 任意数值</th>
+			<td>NaN</td>
+		</tr>
+		<tr>
+			<th>Infinity + Infinity</th>
+			<td>Infinity</td>
+		</tr>
+		<tr>
+			<th>-Infinity + （-Infinity）</th>
+			<td>-Infinity</td>
+		</tr>
+		<tr>
+			<th>Infinity + （-Infinity）</th>
+			<td>NaN</td>
+		</tr>
+		<tr>
+			<th>+0 + （+0）</th>
+			<td> +0 </td>
+		</tr>
+		<tr>
+			<th>-0 + （-0）</th>
+			<td> -0 </td>
+		</tr>
+		<tr>
+			<th>+0 + （-0）</th>
+			<td> +0 </td>
+		</tr>
+		<tr>
+			<th>5 +  5</th>
+			<td> 10 </td>
+		</tr>
+		<tr>
+			<th>5 +  "5"</th>
+			<td> "55"  字符拼接 </td>
+		</tr>
+		<tr>
+			<th>5 +  true</th>
+			<td> 6，进行Number（）函数数值转换 </td>
+		</tr>
+		<tr>
+			<td colspan="2">减法-</td>
+		</tr>
+		<tr>
+			<th>NaN - 任意数值</th>
+			<td>NaN</td>
+		</tr>
+		<tr>
+			<th>Infinity - Infinity</th>
+			<td>NaN</td>
+		</tr>
+		<tr>
+			<th>-Infinity - （-Infinity）</th>
+			<td>NaN</td>
+		</tr>
+		<tr>
+			<th>Infinity - （-Infinity）</th>
+			<td>Infinity</td>
+		</tr>
+		<tr>
+			<th>-Infinity - （-Infinity）</th>
+			<td>-Infinity</td>
+		</tr>
+		<tr>
+			<th>+0 - （+0）</th>
+			<td> +0 </td>
+		</tr>
+		<tr>
+			<th>-0 - （+0）</th>
+			<td> -0 </td>
+		</tr>
+		<tr>
+	</table>
+	<p>9、关系操作符，大于、小于、大于等于、小于等于</p>
+	<dl>
+		<dt>规则</dt>
+		<dd>1、如果都是数值，则正常比较</dd>
+		<dd>2、如果都是字符串，则比较字符串对于的字符编码</dd>
+		<dd>3、如果有一个是数值，则另一个转换为数值，然后再比较</dd>
+		<dd>4、如果有一个是布尔，进行数值转换，然后再比较</dd>
+		<dd>5、任何操作数与NaN进行关系比较，结果都是false</dd>
+	</dl>
+	<img src="images/ASCII编码.jpg">
+	<p>10、相等和不相等，先转换再比较； 全等和不全等，仅比较而不转换</p>
+	<dl>
+		<dd>1、true转换为1，false转换为0</dd>
+		<dd>2、字符串和数值比较，先将字符串转为数值</dd>
+		<dd>3、一个对象，一个非对象，对象调用valueof()方法，再比较</dd>
+		<dd>4、两个都是对象，比较是不是指向同一个对象</dd>
+		<dd>5、null == undefined 相等；但是null !== undefined 不全等 </dd>
+		<dd>6、null 和 undefined 不会转换为其他值</dd>
+	</dl>
+	<p>11、条件操作符，？：</p>
+	<code>
+		var max = ( num1 > num2 ) ? num1 : num2; // 如果num1大于num2，则返回num1，否则返回num2 <br>
+		<br>
+		if(num1 > num2){ <br>
+		&nbsp;&nbsp; var max = num1;<br>
+		} else {<br>
+		&nbsp;&nbsp; var max = num2;<br>		
+		}
+	</code>
+	<p>12、赋值操作符，等于号 = 表示，把右侧的值赋值给右侧的变量</p>
+	<p>13、逗号操作符，声明多个变量及用于赋值</p>
+	<p>14、<strong>javascript三大流程控制语句</strong></p>
+	<a href="https://blog.csdn.net/u013372487/article/details/48491535">地址</a>
+	<ol>
+		<a href="https://blog.csdn.net/weixin_40243411/article/details/77983202">习题地址</a>
+		<li>输出每月的天数？</li>
+		<li>账号密码的简单验证，如果账号密码不是111，就无法录入？</li>
+		<li>90-100 成绩A；80-90成绩B；70-80成绩C；60-70成绩C；其它不合格</li>
+		<li>判断一个年份是不是闰年(或输出1000年到2020年所有的闰年)</li>
+		<li>计算1-100之间所有数字的和</li>
+		<li>1-100之间偶数的和</li>
+		<li>6的阶乘</li>
+		<li>问用户:您觉得我帅吗?提示用户请输入y/n ,如果n就一直问,我帅不帅,如果用户输入的y,则结束,并提示用户,您真有眼光</li>
+		<li>正三角形</li>
+		<li>正菱形</li>
+		<li>乘法口诀表</li>
+		<li>本金10000元存入银行，年利率是千分之三，每过1年，将本金和利息相加作为新的本金。计算5年后，获得的本金是多少？</li>
+		<li>/有个人想知道，一年之内一对兔子能繁殖多少对？于是就筑了一道围墙把一对兔子关在里面。已知一对兔子每个月可以生一对小兔子，而一对兔子从出生后第3个月起每月生一对小兔子。 假如一年内没有发生死亡现象，那么，一对兔子一年内（12个月）能繁殖成多少对？ （兔子的规律为数列，1，1，2，3，5，8，13，21）</li>
+		<a href="https://blog.csdn.net/Mr_Outis/article/details/77852406">习题地址</a>
+		<li>输出100以内的奇数和偶数</li>
+		<li>取100以内与7相关的数</li>
+		<li>篮球从5米高的地方掉下来，每次弹起的高度是原来的30%，经过几次弹起，篮球的高度是0.1米</li>
+		<li>有一个棋盘，有64个方格，在第一个方格里面放1粒芝麻重量是0.00001kg，第二个里面放2粒，第三个里面放4，棋盘上放的所有芝麻的重量</li>
+		<li>折多少次和珠穆朗玛峰一样高</li>
+		<li>有一对幼兔，幼兔1个月后长成小兔，小兔1个月后长成成兔并生下一对幼兔，问几年后有多少对兔子，幼兔、小兔、成兔对数分别是多少。</li>
+		<li>羽毛球拍15元，球3元，水2元。200元每种至少一个，有多少可能</li>
+		<a href="https://blog.csdn.net/JiaJiaGan/article/details/63685541">地址</a>
+		<li>求200到300之间所有奇数的和(用continue)</li>
+		<li>for循环嵌套打印正方形</li>
+		<li>for循环嵌套打印三角形</li>
+		<li>计算1-100之间不能被7整除的数的和</li>
+		<li>计算1-100之间能3整除的数的和</li>
+		<li> 求1到100之间所有数的和、平均值</li>
+		<a href="https://blog.csdn.net/xm_w_xm/article/details/80111684">习题</a>
+		<li>使用switch实现简单计算器</li>
+	</ol>
+	<p>15、函数，函数名需要加括号（）才能调用，return返回值，然后后续的内容不会加载</p>
+	<code>
+		//基本语法 <br>
+		function functionNanme(arg0, arg1, ... ,argN){ <br>
+		&nbsp;&nbsp; Statements;<br>
+		} <br><br>
+
+		//示例 <br>
+		function sayHi(name, message){ <br>
+		&nbsp;&nbsp; alert("Hello "+ name + message);<br>
+		}<br><br>
+
+		//return示例 <br>
+		function sayHi(name, message){ <br>
+		&nbsp;&nbsp; return 100； <br>
+		&nbsp;&nbsp; alert("Hello "+ name + message); //永远不会执行 <br>
+		}<br><br>
+
+		//参数放在arguments[]数组里面 <br>
+		function sayHi(name, message){ <br>
+		&nbsp;&nbsp; alert("Hello "+ name + arguments[1]); //同样可以执行<br>
+		}<br><br>
+
+		//参数放在arguments[]数组里面 <br>
+		function sayHi(){ //没声明参数也可以<br>
+		&nbsp;&nbsp; alert("Hello "+  arguments[0] + arguments[1]); //用arguments数组代替<br>
+		}<br><br>
+
+		//利用arguments[]数组长度，实现重载 <br>
+		function sayHi(name,message){ //没声明参数也可以<br>
+		&nbsp;&nbsp;if(arguments.length == 1){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;alert(arguments[0]) <br>
+		&nbsp;&nbsp;} <br>
+		&nbsp;&nbsp;if(arguments.length == 2){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;alert(arguments[0] + message) <br>
+		&nbsp;&nbsp;} <br>
+		} // arguments[1]数组和命名参数里面的值message保持一致，但是他们是分属不同的内存的，只是值一致<br><br>
+		
+	</code>
+	<br>
+
 
 </body>
 </html>
