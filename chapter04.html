@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS红皮书</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<h1>第4章 变量、作用域和内存问题</h1>
+	<h2>4.1 基本类型和引用类型的值</h2>
+	<p>1、基本类型：Undefined、Null、Boolean、Number和String，这5种基本类型是按值访问的。。还有一种是引用类型，就是对象了</p>
+	<p>2、引用类型，可以添加属性和方法，但是基本类型，不行</p>
+	<p>3、复制基本类型的值，空间相互独立，互不伤害，但是复制引用类型的值那就大大的不一样了，复制之后，引用类型之间的值是互通的</p>
+	<p>4、函数中参数的值传递，从外面传递到里面来的过程，就是按值传递，类似复制过程</p>
+	<code>
+		function addTen(num){ <br>
+		&nbsp;&nbsp; mum += 10； <br>
+		&nbsp;&nbsp; return num; <br>
+		}<br>
+		var count = 20; <br>
+		var result = addTen(count); <br>
+		alert(count);  // 20 没变化 <br> 
+		alert(result);  // 30 <br> 
+	</code>
+	<p>5、检测类型，typeof检测基本类型， instanceof检测引用类型是Object么、是Array么，是Function么。。</p>
+	<p>6、执行环境及作用域，全局环境对象是window对象，程序退出或浏览器关闭才会销毁这个全局对象</p>
+	<code>
+		var color = "blue"; <br>
+		function changeColor(){ <br>
+		&nbsp;&nbsp;if(color == "blue"){ <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;color = "red" ; <br>
+		&nbsp;&nbsp;} else {<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;color = "blue"; <br>
+		&nbsp;&nbsp;} <br>
+		} <br>
+		changeColor(); <br>
+		alert("Color is now " + color);
+	</code>
+	<p></p>
+	<code>
+		var color = "blue"; <br> <br>
+		function changeColor(){ <br>
+		&nbsp;&nbsp;var anotherColor = "red"; <br><br>
+		&nbsp;&nbsp;function swapColors(){ <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;var tempColor = anotherColor; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; anotherColor = color; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; color = tempColor;<br>
+		&nbsp;&nbsp;} <br>
+		} <br>
+		changeColor(); <br>
+		alert("Color is now " + color);
+	</code>
+	<p>7、通过try-catch语句的catch块，或者with语句，来延长作用域链</p>
+	<p>8、if或者for语句中没有块级作用域</p>
+	<code>
+		if(true){<br>
+		&nbsp;&nbsp; var color = "blue"; <br>
+		}
+		alert(color); // 还是可以访问if语句里面的color
+	</code>
+	<p>9、有var是局部，没var的声明是全局变量</p>
+	<code>
+		function add(num1,num2){ <br>
+		&nbsp;&nbsp; var sum = num1 +num2; <br>
+		&nbsp;&nbsp; return sum; <br>
+		} <br>
+		var result = add(10,20) ; // 30  <br>
+		alert(sum); // 局部变量sum不能再外部访问，报错
+	</code>
+	<p></p>
+	<code>
+		function add(num1,num2){ <br>
+		&nbsp;&nbsp; sum = num1 +num2; <br>
+		&nbsp;&nbsp; return sum; <br>
+		} <br>
+		var result = add(10,20) ; // 30  <br>
+		alert(sum); // 30 没有var是全局变量，可以访问
+	</code>
+	<p>10、查询标识符的过程是从内往外查找。</p>
+	<p>11、垃圾收集机制、一、标记清除，二、引用计数</p>
+
+</body>
+</html>

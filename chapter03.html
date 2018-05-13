@@ -277,7 +277,7 @@
 			<td>false</td>
 		</tr>
 	</table>
-	<p>5、布尔操作符：逻辑与属于短路操作，如果第一个操作符能决定结果，就不会再对第二个操作符求职。也就是如果有一个是false，那第二个就不会执行</p>
+	<p>5、布尔操作符：逻辑与相当于日常生活中的“并且”，就是两个条件都同时成立的情况下“逻辑与”的运算结果才是真，也就是说，要一起真才是真，如果有一个是假的false，那就是假的</p>
 	<code>
 		var result = true && false; //逻辑与
 	</code>
@@ -296,12 +296,12 @@
 		<tr>
 			<td>true</td>
 			<td>false</td>
-			<td>true</td>
+			<td>false</td>
 		</tr>
 		<tr>
 			<td>false</td>
 			<td>true</td>
-			<td>true</td>
+			<td>false</td>
 		</tr>
 		<tr>
 			<td>false</td>
@@ -346,7 +346,7 @@
 		var result = (found && someUndefinedVariable); <br>
 		console.log(result);
 	</code>
-	<p>6、布尔操作符：逻辑或属于短路操作，如果第一个操作符能决定结果，就不会再对第二个操作符求职。也就是如果有一个是true就是true</p>
+	<p>6、布尔操作符：逻辑或相当于日常生活中的“或者”，就是两个条件只要一个成立就可以，这就是说，如果有一个是真的，那就是真的</p>
 	<code>
 		var result = true || false; //逻辑或
 	</code>
@@ -365,12 +365,12 @@
 		<tr>
 			<td>true</td>
 			<td>false</td>
-			<td>false</td>
+			<td>true</td>
 		</tr>
 		<tr>
 			<td>false</td>
 			<td>true</td>
-			<td>false</td>
+			<td>true</td>
 		</tr>
 		<tr>
 			<td>false</td>
